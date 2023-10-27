@@ -157,8 +157,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.522, y: 0.46300003}
   m_AnchorMax: {x: 0.522, y: 0.46300003}
-  m_AnchoredPosition: {x: -20, y: 392}
-  m_SizeDelta: {x: 579.624, y: 235.65558}
+  m_AnchoredPosition: {x: -0.000011444092, y: 39.96}
+  m_SizeDelta: {x: 1349.1649, y: 938.2803}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &207806090
 MonoBehaviour:
@@ -180,7 +180,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Spilleregler\nDet g\xE6lder om at have mindst point. "
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
