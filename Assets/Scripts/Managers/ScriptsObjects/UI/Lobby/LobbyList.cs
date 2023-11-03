@@ -15,6 +15,18 @@ public class LobbyList : MonoBehaviourPunCallbacks
 
     private List<LobbyListing> _listings = new List<LobbyListing>();
 
+    private LobbyCanvases _lobbyCanvases;
+
+    public void FirstInitialize(LobbyCanvases canvases)
+    {
+        _lobbyCanvases = canvases;
+    }
+
+    public override void OnJoinedRoom()
+    {
+        _lobbyCanvases.NuværendeLobbyCanvas.Show();
+    }
+
     public override void OnRoomListUpdate(List<RoomInfo> roomList)
     {
         foreach (RoomInfo info in roomList)

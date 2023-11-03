@@ -9,8 +9,14 @@ using TMPro;
 public class CreateLobby : MonoBehaviourPunCallbacks
 {
     [SerializeField]
-    private TextMeshProUGUI _roomName; 
+    private TextMeshProUGUI _roomName;
 
+    private LobbyCanvases _lobbyCanvases;
+
+    public void FirstInitialize(LobbyCanvases canvases)
+    {
+        _lobbyCanvases = canvases;
+    }
     public void OnClick_CreatRoom()
     {
         if (!PhotonNetwork.IsConnected)
@@ -25,6 +31,7 @@ public class CreateLobby : MonoBehaviourPunCallbacks
     public override void OnCreatedRoom()
     {
         Debug.Log("Created lobby succesfully", this);
+        _lobbyCanvases.NuværendeLobbyCanvas.Show();
     }
 
     public override void OnCreateRoomFailed(short returnCode, string message)

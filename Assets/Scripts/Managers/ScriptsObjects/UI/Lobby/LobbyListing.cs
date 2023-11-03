@@ -18,5 +18,9 @@ public class LobbyListing : MonoBehaviourPunCallbacks
         _text.text = roomInfo.MaxPlayers + ","+roomInfo.Name;
     }
 
+    public void OnClickButton()
+    {
+        PhotonNetwork.JoinRoom(RoomInfo.Name);
+    }
 
 }
