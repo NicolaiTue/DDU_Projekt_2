@@ -33,6 +33,8 @@ public class LobbyList : MonoBehaviourPunCallbacks
     {
         foreach (RoomInfo info in roomList)
         {
+             
+
             if (info.RemovedFromList)
             {
                 int index = _listings.FindIndex(x => x.RoomInfo.Name == info.Name);
@@ -42,24 +44,34 @@ public class LobbyList : MonoBehaviourPunCallbacks
                     _listings.RemoveAt(index);
                 }
             }
-
-
             else
             {
-                int index = _listings.FindIndex(x => x.RoomInfo.Name == info.Name);
-                if(index != -1)
+                LobbyListing listing = Instantiate(_lobbyListing, _content);
                 {
-                    LobbyListing listing = Instantiate(_lobbyListing, _content);
                     if (listing != null)
                     {
                         listing.SetRoomInfo(info);
                         _listings.Add(listing);
                     }
                 }
-                
-                    
             }
-            
+
+            //else
+            //{
+            //    int index = _listings.FindIndex(x => x.RoomInfo.Name == info.Name);
+            //    if(index != -1)
+            //    {
+            //        LobbyListing listing = Instantiate(_lobbyListing, _content);
+            //        if (listing != null)
+            //        {
+           //            listing.SetRoomInfo(info);
+            //            _listings.Add(listing);
+            //        }
+            //    }
+
+
+            //}
+
         }
     }
 
