@@ -6,9 +6,16 @@ public class NuværendeLobbyCanvas : MonoBehaviour
 {
     private LobbyCanvases _lobbyCanvases;
 
+    [SerializeField]
+    private PlayerList _playerList;
+    [SerializeField]
+    private LeaveRoomMenu _leaveRoomMenu;
+
     public void FirstInitialize(LobbyCanvases canvases)
     {
         _lobbyCanvases = canvases;
+        _playerList.FirstInitialize(canvases);
+        _leaveRoomMenu.FirstInttialize(canvases);
     }
 
     public void Show()
@@ -16,7 +23,7 @@ public class NuværendeLobbyCanvas : MonoBehaviour
         gameObject.SetActive(true);
     }
 
-    private void Hide()
+    public void Hide()
     {
         gameObject.SetActive(false);
     }

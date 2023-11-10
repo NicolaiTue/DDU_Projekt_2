@@ -13,14 +13,33 @@ public class PlayerList : MonoBehaviourPunCallbacks
     private PlayerListing _playerListing;
 
     private List<PlayerListing> _listings = new List<PlayerListing>();
+    private LobbyCanvases _lobbyCanvases;
 
     private void Awake()
     {
-        GetCanvasGroupChanged();
+        GetCanvasGroupPlayers();
     }
 
-    private void GetCanvasGroupChanged()
+    public void FirstInitialize(LobbyCanvases canvases)
     {
+        _lobbyCanvases = canvases;
+    }
+
+    public override void OnLeftRoom()
+    {
+       _content.DestroyChildren();
+    }
+
+    private void GetCanvasGroupPlayers()
+    {
+        if (!PhotonNetwork.IsConnected)
+        {
+            return;
+        }
+        if  (PhotonNetwork.CurrentRoom == null || PhotonNetwork.CurrentRoom.Players == null)
+        {
+            return;
+        }
         foreach (KeyValuePair<int, Player> playerInfo in PhotonNetwork.CurrentRoom.Players)
         {
             AddPlayerListing(playerInfo.Value);
@@ -53,5 +72,17 @@ public class PlayerList : MonoBehaviourPunCallbacks
             _listings.RemoveAt(index);
         }
     }
-     
+
+    public void OnClick_StartGame()
+    {
+        if (PhotonNetwork.IsMasterClient)
+        {
+            PhotonNetwork.CurrentRoom.IsOpen = false;
+            PhotonNetwork.CurrentRoom.IsVisible = false;
+            PhotonNetwork.LoadLevel(1);
+        }
+            
+    }
+
+
 }
