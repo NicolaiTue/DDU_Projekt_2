@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Photon.Pun;
@@ -31,6 +32,7 @@ public class LobbyList : MonoBehaviourPunCallbacks
 
     public override void OnRoomListUpdate(List<RoomInfo> roomList)
     {
+        
         foreach (RoomInfo info in roomList)
         {
              
@@ -46,31 +48,20 @@ public class LobbyList : MonoBehaviourPunCallbacks
             }
             else
             {
-                LobbyListing listing = Instantiate(_lobbyListing, _content);
+                int index = _listings.FindIndex(x => x.RoomInfo.Name == info.Name);
+                if(index == -1)
                 {
+                    LobbyListing listing = Instantiate(_lobbyListing, _content);
                     if (listing != null)
                     {
-                        listing.SetRoomInfo(info);
+                       listing.SetRoomInfo(info);
                         _listings.Add(listing);
                     }
+                    
                 }
+                //else modify
+
             }
-
-            //else
-            //{
-            //    int index = _listings.FindIndex(x => x.RoomInfo.Name == info.Name);
-            //    if(index != -1)
-            //    {
-            //        LobbyListing listing = Instantiate(_lobbyListing, _content);
-            //        if (listing != null)
-            //        {
-           //            listing.SetRoomInfo(info);
-            //            _listings.Add(listing);
-            //        }
-            //    }
-
-
-            //}
 
         }
     }
