@@ -7,6 +7,15 @@ using UnityEngine.UI;
 
 public class Tid : MonoBehaviour
 {
+
+    [SerializeField]
+    private Question _question;
+    public Question Question { get { return _question; } }
+
+    [SerializeField]
+    private RundeFærdig _rundeFærdig;
+    public RundeFærdig RundeFærdig { get { return _rundeFærdig; } }
+
     DateTime dt;
     public TextMeshProUGUI _text;
     public float resetTime = 10f;
@@ -43,8 +52,12 @@ public class Tid : MonoBehaviour
         {
             _text.text = "";
             triggered = true;
+            Question.Hide();
+            ResetTimer();
+            RundeFærdig.Show();
+
         }
-        
+
     }
 
     private void Timer()
@@ -57,7 +70,7 @@ public class Tid : MonoBehaviour
         {
 
             Debug.Log("Tid er gået!");
-
+            timerOn = false;
         }
         else
         {

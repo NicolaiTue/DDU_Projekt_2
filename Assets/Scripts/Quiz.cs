@@ -14,12 +14,16 @@ public class Quiz : MonoBehaviour
     private RundeFærdig _rundeFærdig;
     public RundeFærdig RundeFærdig { get { return _rundeFærdig; } }
 
+    public Kategorier _kategorier;
+
     public void OnClick_NextQuestion()
     {
+        
         if (PhotonNetwork.IsMasterClient)
         {
-            Question.Hide();
-            RundeFærdig.Show();
+            RundeFærdig.Hide();
+            Question.Show();
+            _kategorier.MasterChangeScene();
         }
 
     }
