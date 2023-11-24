@@ -10,6 +10,8 @@ using System.Data.Common;
 public class Kategorier : MonoBehaviourPunCallbacks
 {
 
+
+
     [SerializeField]
     private Question _question;
     public Question Question { get { return _question; } }
@@ -19,6 +21,8 @@ public class Kategorier : MonoBehaviourPunCallbacks
     public RundeFærdig RundeFærdig { get { return _rundeFærdig; } }
 
     public HostControls hostControls;
+
+
     public struct ListOfListsStruct
     {
         public List<string> title;
@@ -30,13 +34,19 @@ public class Kategorier : MonoBehaviourPunCallbacks
     string spørgsmål;
     ListOfListsStruct myListOfLists;
 
+    
+
     public TextMeshProUGUI _text;
 
-
+    //List<List<Answer>> answerList;
     void Awake()
     {
-        myListOfLists.valgtKategorier = new List<int>();
+        //Answer n = new Answer("sjælland", 90);
+        //List<Answer> OerIDK = new List<Answer> { new Answer("Sjælland", 90), new Answer("Fyn", 80), new Answer("Lolland", 70), new Answer("Falster", 68) };
+        //answerList.Add(OerIDK);
 
+
+        myListOfLists.valgtKategorier = new List<int>();
         // Opret en liste af lister
         myListOfLists.mainList = new List<List<string>>();
 
@@ -116,10 +126,12 @@ public class Kategorier : MonoBehaviourPunCallbacks
 
     public void MasterChangeScene()
     {
+        
         if (PhotonNetwork.IsMasterClient)
         {
             var random = new Random();
             int randomIndex;
+
             do
             {
                 randomIndex = random.Next(0, myListOfLists.title.Count - 1);
@@ -131,8 +143,13 @@ public class Kategorier : MonoBehaviourPunCallbacks
             photonView.RPC("CallRPCFunction", RpcTarget.AllBuffered, randomIndex);
             Debug.Log(randomIndex);
             //load spørgsmål
+
+
+
         }
     }
+   
+    
 
     [PunRPC]
     public void CallRPCFunction(int i)
@@ -169,3 +186,14 @@ public class Kategorier : MonoBehaviourPunCallbacks
     }
 }
 
+public class Answer
+{
+    public Answer(string n, int v)
+    {
+        name = n;
+        value = v;
+    }
+    public string name;
+    public int value;
+
+}
