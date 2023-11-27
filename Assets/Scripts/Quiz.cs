@@ -15,6 +15,9 @@ public class Quiz : MonoBehaviour
     public RundeFærdig RundeFærdig { get { return _rundeFærdig; } }
 
     public Kategorier _kategorier;
+    public Tid tid;
+
+    public PlayerRanking ranking;
 
     public void OnClick_NextQuestion()
     {
@@ -23,6 +26,8 @@ public class Quiz : MonoBehaviour
         {
             RundeFærdig.Hide();
             Question.Show();
+            tid.ResetTimer();
+            ranking.GetScore();
             _kategorier.MasterChangeScene();
         }
 

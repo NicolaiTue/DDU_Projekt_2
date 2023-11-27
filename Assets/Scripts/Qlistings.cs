@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Qlistings : MonoBehaviour
@@ -9,12 +10,7 @@ public class Qlistings : MonoBehaviour
     private TextMeshProUGUI _text;
     public string answerTxt = "";
     public int answerPoint = 0;
-
-    
-
-    public Kategorier _kategorier;
-
-    int x = _;
+    private Bekraaft _bekraaft;
 
     public void SetupBtn(string text, int value)
     {
@@ -23,9 +19,17 @@ public class Qlistings : MonoBehaviour
         _text.text = answerTxt;
     }
 
-    public void Selected()
+    private void Awake()
     {
-        //send svar og opdater min score
+        _bekraaft = GameObject.FindObjectOfType(typeof(Bekraaft)).GetComponent<Bekraaft>();
+
+    }
+
+    public void OnClick()
+    {
+        _bekraaft.Show();
+        _bekraaft.points = answerPoint;
+        _bekraaft.svar = answerTxt;
     }
 
     public void SetMuligheder(Kategorier muligheder)

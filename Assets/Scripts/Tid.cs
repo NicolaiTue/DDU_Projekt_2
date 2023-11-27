@@ -16,6 +16,8 @@ public class Tid : MonoBehaviour
     private RundeFærdig _rundeFærdig;
     public RundeFærdig RundeFærdig { get { return _rundeFærdig; } }
 
+    public Bekraaft _bekraaft;
+
     DateTime dt;
     public TextMeshProUGUI _text;
     public float resetTime = 10f;
@@ -53,8 +55,7 @@ public class Tid : MonoBehaviour
             _text.text = "";
             triggered = true;
             Question.Hide();
-            ResetTimer();
-            RundeFærdig.Show();
+            
 
         }
 
@@ -71,6 +72,8 @@ public class Tid : MonoBehaviour
 
             Debug.Log("Tid er gået!");
             timerOn = false;
+            RundeFærdig.Svaret("For langsom til at svare", 100);
+            _bekraaft.Hide();
         }
         else
         {
