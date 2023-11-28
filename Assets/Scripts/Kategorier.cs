@@ -175,15 +175,9 @@ public class Kategorier : MonoBehaviourPunCallbacks
             
             myListOfLists.valgtKategorier.Add(randomIndex);
             _text.text = myListOfLists.title[randomIndex];
-//            hostControls.CallRPCFunction(randomIndex);
             photonView.RPC("CallRPCFunction", RpcTarget.AllBuffered, randomIndex);
             Debug.Log(randomIndex);
-            //load spørgsmål
-            /*
-             * 
-             * 
-             * 
-             */
+           
 
             for (int i = 0; i < myListOfLists.mainList[randomIndex].Count; i++)
             {
@@ -196,17 +190,7 @@ public class Kategorier : MonoBehaviourPunCallbacks
 
             }
 
-            //foreach (string mulighed in myListOfLists.mainList[randomIndex])
-            //{
-            //    Qlistings listing = Instantiate(button, _content);
-            //    if (listing != null)
-            //    {
-            //        _listings.Add(listing);
-            //        listing.GetOrAddComponent<Qlistings>().answerTxt = mulighed;
-            //    }
-
-
-            //}
+            
 
         }
     }

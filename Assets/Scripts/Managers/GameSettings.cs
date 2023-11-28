@@ -7,11 +7,19 @@ using UnityEngine;
 public class GameSettings : ScriptableObject
 {
 
+    public int runder = 1;
+    public int timer = 1;
+
     [SerializeField]
     private string _gameVersion = "0.0.0";
     public string GameVersion { get { return _gameVersion; } }
-    [SerializeField]
-    private string _nickName = "Tue";
+
+
+
+    public string _nickName = "Tue";
+
+
+
     public string NickName
     {
         get

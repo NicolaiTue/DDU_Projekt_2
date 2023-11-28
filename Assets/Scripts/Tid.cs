@@ -20,10 +20,11 @@ public class Tid : MonoBehaviour
 
     DateTime dt;
     public TextMeshProUGUI _text;
-    public float resetTime = 10f;
-    private float tid_sek = 10f; // 2 min i sek
+    public float resetTime = 120f;
+    private float tid_sek = 120f; // 2 min i sek
     private bool timerOn = true;
     private bool triggered = false;
+    public GameSettings gameSettings;
 
     public void StopTimer()
     {
@@ -39,6 +40,7 @@ public class Tid : MonoBehaviour
 
     private void Awake()
     {
+        resetTime = gameSettings.timer;
         tid_sek = resetTime;
     }
 

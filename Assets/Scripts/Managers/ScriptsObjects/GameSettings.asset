@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72d1ea10416cf4241b87cae3365c0339, type: 3}
   m_Name: GameSettings
   m_EditorClassIdentifier: 
+  runder: 5
+  timer: 240
   _gameVersion: 0.0.0
-  _nickName: Tue
+  _nickName: "gtc\u200B"

@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Quiz : MonoBehaviour
 {
+    public GameSettings settings;
 
     [SerializeField]
     private Question _question;
@@ -24,6 +25,12 @@ public class Quiz : MonoBehaviour
         
         if (PhotonNetwork.IsMasterClient)
         {
+            settings.runder--;
+            if(settings.runder < 1)
+            {
+                PhotonNetwork.LoadLevel(3);
+                return;
+            }
             RundeFærdig.Hide();
             Question.Show();
             tid.ResetTimer();
