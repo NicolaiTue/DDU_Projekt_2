@@ -33,6 +33,11 @@ public class Runder : MonoBehaviour
                 runder = (int)(0b0000_1111 & (byte)c) + runder;
             }
         }
+        if(runder < 1)
+        {
+            runder = 20;
+        }
+
         Debug.Log("runder = " + runder);
         settings.runder = runder;
         
