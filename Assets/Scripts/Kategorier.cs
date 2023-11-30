@@ -46,12 +46,10 @@ public class Kategorier : MonoBehaviourPunCallbacks
 
     public TextMeshProUGUI _text;
 
-    //List<List<Answer>> answerList;
+
     void Awake()
     {
-        //Answer n = new Answer("sjælland", 90);
-        //List<Answer> OerIDK = new List<Answer> { new Answer("Sjælland", 90), new Answer("Fyn", 80), new Answer("Lolland", 70), new Answer("Falster", 68) };
-        //answerList.Add(OerIDK);
+        
 
 
         myListOfLists.valgtKategorier = new List<int>();
@@ -142,9 +140,6 @@ public class Kategorier : MonoBehaviourPunCallbacks
         myListOfLists.mainList.Add(new List<string> { "Roskilde kommune", "Ringsted kommune", "Randers kommune", "Ringkøbing-Skjern kommune","Risskov kommune","Rebild kommune","Rudersdal kommune","Rødovre kommune","Rønne kommune","Rømø kommune","Rødby kommune","Rødekro kommune","Ringe kommune","Rungsted kommune","Ringkøbing kommune" });
         myListOfLists.points.Add(new List<int> { 95, 86, 91, 32 , 14, 0, 0, 46, 100, 100, 100, 100, 100, 100, 100  });
 
-
-        // Udskriv indholdet af listen
-        //PrintList(mainList);
     }
 
 
