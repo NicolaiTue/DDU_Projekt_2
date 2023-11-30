@@ -786,7 +786,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9150943, g: 0.9150943, b: 0.9150943, a: 1}
+  m_Color: {r: 0.047058824, g: 0.07450981, b: 0.6509804, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2360,6 +2360,8 @@ MonoBehaviour:
   _question: {fileID: 1220563714}
   "_rundeF\xE6rdig": {fileID: 2043303712}
   button: {fileID: 8125361276515770322, guid: dc80810578fc4864c8d859d0183fc59b, type: 3}
+  tid: {fileID: 1104734200}
+  ranking: {fileID: 1007824462}
   _text: {fileID: 41468887}
 --- !u!114 &846542647
 MonoBehaviour:
