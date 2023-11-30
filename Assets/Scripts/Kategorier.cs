@@ -229,19 +229,7 @@ public class Kategorier : MonoBehaviourPunCallbacks
 
             }
 
-            //load
-            //
-            //foreach (string mulighed in myListOfLists.mainList[index])
-            //{
-            //    Qlistings listing = Instantiate(button, _content);
-            //    if (listing != null)
-            //    {
-            //        _listings.Add(listing);
-            //        listing.GetOrAddComponent<Qlistings>().answerTxt = mulighed;
-            //    }
-
-
-            //}
+            
 
         }
 
