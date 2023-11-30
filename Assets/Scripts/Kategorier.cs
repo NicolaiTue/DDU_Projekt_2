@@ -20,14 +20,16 @@ public class Kategorier : MonoBehaviourPunCallbacks
     public Question Question { get { return _question; } }
 
     [SerializeField]
-    private RundeFærdig _rundeFærdig;
-    public RundeFærdig RundeFærdig { get { return _rundeFærdig; } }
+    private RundeFÃ¦rdig _rundeFÃ¦rdig;
+    public RundeFÃ¦rdig RundeFÃ¦rdig { get { return _rundeFÃ¦rdig; } }
 
     public Qlistings button;
 
     private List<Qlistings> _listings = new List<Qlistings>();
 
-    
+    public Tid tid;
+
+    public PlayerRanking ranking;
 
     public struct ListOfListsStruct
     {
@@ -39,7 +41,7 @@ public class Kategorier : MonoBehaviourPunCallbacks
     }
 
     string titel;
-    string spørgsmål;
+    string spÃ¸rgsmÃ¥l;
     ListOfListsStruct myListOfLists;
 
     
@@ -58,18 +60,18 @@ public class Kategorier : MonoBehaviourPunCallbacks
         myListOfLists.points = new List<List<int>>();
 
         //lister i listen
-        myListOfLists.title = new List<string> { "Øer i Danmark", " Hajarter", "Kortspil", "Nobelfredspris vindere", "Wimbledon vindere", "VM i fodbold vindere", "Lande i kontinentet Asien", "Karakterer i Harry Potter", "Superhelte fra Marvel", "Sportsgrene der indgår boldspil", "Kræfttyper", "Haribo slik varianter", "Mandlige oscarvindere", "Superhelte fra DC", "Karakterer fra Batman universet", "Frugter / bær med ordet bær i", "Danske landsholdspillere i fodbold de sidste 5 år", "Rasmus Seebach sange", "Officielle sprog i Europa", "Danske kommuner der begynder med R" };
+        myListOfLists.title = new List<string> { "Ã˜er i Danmark", " Hajarter", "Kortspil", "Nobelfredspris vindere", "Wimbledon vindere", "VM i fodbold vindere", "Lande i kontinentet Asien", "Karakterer i Harry Potter", "Superhelte fra Marvel", "Sportsgrene der indgÃ¥r boldspil", "KrÃ¦fttyper", "Haribo slik varianter", "Mandlige oscarvindere", "Superhelte fra DC", "Karakterer fra Batman universet", "Frugter / bÃ¦r med ordet bÃ¦r i", "Danske landsholdspillere i fodbold de sidste 5 Ã¥r", "Rasmus Seebach sange", "Officielle sprog i Europa", "Danske kommuner der begynder med R" };
 
-        // Øer i Danmark
-        myListOfLists.mainList.Add(new List<string> { "Sjælland", "Fyn", "Lolland", "Falster", "Bornholm", "Thurø", "Jylland", "Bogø", "Rømø", "Læsø", "Femø","Samsø", "Tåsinge", "Christiansø", "Langeland" });
+        // Ã˜er i Danmark
+        myListOfLists.mainList.Add(new List<string> { "SjÃ¦lland", "Fyn", "Lolland", "Falster", "Bornholm", "ThurÃ¸", "Jylland", "BogÃ¸", "RÃ¸mÃ¸", "LÃ¦sÃ¸", "FemÃ¸","SamsÃ¸", "TÃ¥singe", "ChristiansÃ¸", "Langeland" });
         myListOfLists.points.Add(new List<int> { 94, 85, 37, 45, 90, 0, 100, 27, 10, 24, 0, 18, 6, 2, 62 });
 
         // Hajarter
-        myListOfLists.mainList.Add(new List<string> { "Hvidhaj", "Hammerhaj", "Rødhaj", "Pighaj","Tigerhaj","Hvalhaj","Megalodon", "Hajhval", "Savhaj","Cookiecutterhaj","Sorthaj","Afrohaj","Stjernehaj", "Grønlandshaj", "Blåhaj" });
+        myListOfLists.mainList.Add(new List<string> { "Hvidhaj", "Hammerhaj", "RÃ¸dhaj", "Pighaj","Tigerhaj","Hvalhaj","Megalodon", "Hajhval", "Savhaj","Cookiecutterhaj","Sorthaj","Afrohaj","Stjernehaj", "GrÃ¸nlandshaj", "BlÃ¥haj" });
         myListOfLists.points.Add(new List<int> { 97, 89, 4, 32, 71, 20, 15, 100, 6, 2, 0, 100, 0, 12, 44 });
 
         // Kortspil
-        myListOfLists.mainList.Add(new List<string> { "Krig", "Fisk", "500", "100", "Røvhul","Poker","Blackjack","Kasino","Hjerterfri","Kabale","Uno","Vandfald","Whist","Bridge","Gammel Jomfru" });
+        myListOfLists.mainList.Add(new List<string> { "Krig", "Fisk", "500", "100", "RÃ¸vhul","Poker","Blackjack","Kasino","Hjerterfri","Kabale","Uno","Vandfald","Whist","Bridge","Gammel Jomfru" });
         myListOfLists.points.Add(new List<int> { 92, 98, 52, 5, 57, 63, 76, 13, 21, 34, 100, 19, 3, 0, 0 });
 
         // Nobelfredspris vindere
@@ -96,12 +98,12 @@ public class Kategorier : MonoBehaviourPunCallbacks
         myListOfLists.mainList.Add(new List<string> { "Captain America", "Black Widow", "Star Lord", "Spiderman","Ironman","Hulk","Hawkeye","Thor","Vision","Falcon","Dr. Strange","Black Panther","Ultron","Thanos","Miles Morales" });
         myListOfLists.points.Add(new List<int> { 96, 82, 38, 93, 99, 88, 67, 91, 43, 31, 56, 49, 100, 100, 0 });
 
-        // Sportsgrene der indgår boldspil
-        myListOfLists.mainList.Add(new List<string> { "Fodbold", "Tennis", "Kroket", "Bordtennis","Golf","Rundbold","Håndbold","Badminton","Basketball","Padeltennis","Lacrosse","Vandpolo","Squash","Dart","Ishockey" });
+        // Sportsgrene der indgÃ¥r boldspil
+        myListOfLists.mainList.Add(new List<string> { "Fodbold", "Tennis", "Kroket", "Bordtennis","Golf","Rundbold","HÃ¥ndbold","Badminton","Basketball","Padeltennis","Lacrosse","Vandpolo","Squash","Dart","Ishockey" });
         myListOfLists.points.Add(new List<int> { 99, 92, 43, 26, 42, 8, 78, 15, 87, 21, 0, 4, 0, 100, 100 });
 
-        // Kræfttyper
-        myListOfLists.mainList.Add(new List<string> { "Lungekræft", "Lymfekræft", "Strubekræft", "Testikelkræft", "Prostatakræft", "Blodkræft", "Hjernekræft", "Brystkræft", "Hudkræft", "Tarmkræft", "Rygsøjlekræft", "Modermærkekræft","Æggestokskræft","Fingerkræft","Tåkræft" }) ;
+        // KrÃ¦fttyper
+        myListOfLists.mainList.Add(new List<string> { "LungekrÃ¦ft", "LymfekrÃ¦ft", "StrubekrÃ¦ft", "TestikelkrÃ¦ft", "ProstatakrÃ¦ft", "BlodkrÃ¦ft", "HjernekrÃ¦ft", "BrystkrÃ¦ft", "HudkrÃ¦ft", "TarmkrÃ¦ft", "RygsÃ¸jlekrÃ¦ft", "ModermÃ¦rkekrÃ¦ft","Ã†ggestokskrÃ¦ft","FingerkrÃ¦ft","TÃ¥krÃ¦ft" }) ;
         myListOfLists.points.Add(new List<int> { 92, 68, 85, 93, 74, 47, 56, 79, 36, 24, 12, 0, 0, 100, 100 });
 
         // Haribo slik varianter
@@ -120,16 +122,16 @@ public class Kategorier : MonoBehaviourPunCallbacks
         myListOfLists.mainList.Add(new List<string> { "Batman", "The Riddler", "Joker", "Bane","Mr. Freeze","Poison Ivy","Two Face","Catwoman","Harley Quinn","Jim Gordon","Alfred","Scarecrow","Thomas Wayne","Wolverine","Lucius Fox" });
         myListOfLists.points.Add(new List<int> { 100, 76, 99, 87, 82, 71, 92, 95, 89, 43, 56, 23, 5, 100, 0 });
 
-        // Frugter / bær med ordet bær i
-        myListOfLists.mainList.Add(new List<string> { "Hindbær", "Brombær", "Jordbær", "Ranglebær","Skovbær","Blåbær","Stikkelsbær","Tyttebær","Solbær","Kirsebær","Enebær","Tranebær","Multebær","Morbær","Boysenbær" });
+        // Frugter / bÃ¦r med ordet bÃ¦r i
+        myListOfLists.mainList.Add(new List<string> { "HindbÃ¦r", "BrombÃ¦r", "JordbÃ¦r", "RanglebÃ¦r","SkovbÃ¦r","BlÃ¥bÃ¦r","StikkelsbÃ¦r","TyttebÃ¦r","SolbÃ¦r","KirsebÃ¦r","EnebÃ¦r","TranebÃ¦r","MultebÃ¦r","MorbÃ¦r","BoysenbÃ¦r" });
         myListOfLists.points.Add(new List<int> { 99, 79, 98, 100, 100, 75, 62, 43, 33, 78, 7, 58, 0, 0, 23 });
 
-        // Danske landsholdspillere i fodbold de sidste 5 år
-        myListOfLists.mainList.Add(new List<string> { "Christian Eriksen", "Kasper Schmeichel", "Robert Skov","Elias Jelert","Thomas Delaney","Rasmus Højlund","John Faxe Jensen","Andreas Christensen","Mohammed Daramy","Christian Nørgaard","Pierre-Emil Højbjerg","Simon Kjær","Mathias Zanka","Mikkel Damsgaard","Lukas Lerager" });
+        // Danske landsholdspillere i fodbold de sidste 5 Ã¥r
+        myListOfLists.mainList.Add(new List<string> { "Christian Eriksen", "Kasper Schmeichel", "Robert Skov","Elias Jelert","Thomas Delaney","Rasmus HÃ¸jlund","John Faxe Jensen","Andreas Christensen","Mohammed Daramy","Christian NÃ¸rgaard","Pierre-Emil HÃ¸jbjerg","Simon KjÃ¦r","Mathias Zanka","Mikkel Damsgaard","Lukas Lerager" });
         myListOfLists.points.Add(new List<int> { 98, 92, 42, 4, 85, 79, 100, 56, 0, 16, 67, 78, 0, 36, 100 });
 
         // Rasmus Seebach sange
-        myListOfLists.mainList.Add(new List<string> { "Øde ø", "Natteravn", "Olivia", "Lidt i 5", "Millionær", "Tusind farver", "Livstegn", "Engel", "Zombie", "Farlig", "Falder", "Lovesong", "Du en ener", "Din forevigt", "Under Stjernerne på himlen" });
+        myListOfLists.mainList.Add(new List<string> { "Ã˜de Ã¸", "Natteravn", "Olivia", "Lidt i 5", "MillionÃ¦r", "Tusind farver", "Livstegn", "Engel", "Zombie", "Farlig", "Falder", "Lovesong", "Du en ener", "Din forevigt", "Under Stjernerne pÃ¥ himlen" });
         myListOfLists.points.Add(new List<int> { 93, 89, 82, 76, 84, 53, 23, 64, 9, 18, 29, 0, 100, 100, 0 });
 
         // Officielle sprog i Europa
@@ -137,7 +139,7 @@ public class Kategorier : MonoBehaviourPunCallbacks
         myListOfLists.points.Add(new List<int> { 96, 99, 89, 75, 72, 32, 67, 45, 82, 86, 100, 100, 0, 0, 8 });
 
         // Danske kommuner der begynder med R
-        myListOfLists.mainList.Add(new List<string> { "Roskilde kommune", "Ringsted kommune", "Randers kommune", "Ringkøbing-Skjern kommune","Risskov kommune","Rebild kommune","Rudersdal kommune","Rødovre kommune","Rønne kommune","Rømø kommune","Rødby kommune","Rødekro kommune","Ringe kommune","Rungsted kommune","Ringkøbing kommune" });
+        myListOfLists.mainList.Add(new List<string> { "Roskilde kommune", "Ringsted kommune", "Randers kommune", "RingkÃ¸bing-Skjern kommune","Risskov kommune","Rebild kommune","Rudersdal kommune","RÃ¸dovre kommune","RÃ¸nne kommune","RÃ¸mÃ¸ kommune","RÃ¸dby kommune","RÃ¸dekro kommune","Ringe kommune","Rungsted kommune","RingkÃ¸bing kommune" });
         myListOfLists.points.Add(new List<int> { 95, 86, 91, 32 , 14, 0, 0, 46, 100, 100, 100, 100, 100, 100, 100  });
 
     }
@@ -197,7 +199,7 @@ public class Kategorier : MonoBehaviourPunCallbacks
     {
 
         ChangeScreen(i);
-        // Gør noget med det modtagne parameter
+        // GÃ¸r noget med det modtagne parameter
         Debug.Log("Modtaget parameter: " + i);
     }
 
@@ -205,8 +207,10 @@ public class Kategorier : MonoBehaviourPunCallbacks
     {
         if(!PhotonNetwork.IsMasterClient)
         {
-            RundeFærdig.Hide();
+            RundeFÃ¦rdig.Hide();
             Question.Show();
+            tid.ResetTimer();
+            ranking.GetScore();
 
             foreach (Qlistings listing in _listings)
             {
