@@ -22,10 +22,6 @@ public class TestConnect : MonoBehaviourPunCallbacks
 
         Debug.Log("connected to Photon.", this);
         Debug.Log("My nickname is " + PhotonNetwork.LocalPlayer.NickName, this);
-        //if (!PhotonNetwork.InLobby)
-        //{
-        //    PhotonNetwork.JoinLobby();
-        //}
 
         print("connected to server");
         print(PhotonNetwork.LocalPlayer.NickName);

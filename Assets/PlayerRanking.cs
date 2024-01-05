@@ -21,9 +21,5 @@ public class PlayerRanking : MonoBehaviour
             Debug.Log(player.GetScore() + player.NickName);
             _text.text += player.NickName + ": " + player.GetScore() + "\n";
         }
-
-
-
     }
-
 }

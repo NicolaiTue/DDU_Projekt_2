@@ -17,7 +17,7 @@ public class Runder : MonoBehaviour
     public void SetRunder()
     {
        
-        //settings.runder = Convert.ToInt32(text);
+        
 
         string text = _text.text;
         Debug.Log(text);
